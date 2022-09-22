@@ -1,4 +1,168 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --neon-color1: rgb(70, 134, 255);
+  --neon-color2: rgb(255, 57, 57);
+}
+
+body {
+  background-color: rgb(29, 29, 29);
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(17, 17, 17);
+  width: 100vw;
+  height: 8vh;
+  justify-content: space-between;
+  box-shadow: 1px 1px 7px var(--neon-color1);
+}
+
+.title {
+  padding-left: 50px;
+  height: 8vh;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.title > a {
+  font-size: 2rem;
+  padding-left: 50px;
+  height: 8vh;
+  align-self: center;
+  font-family: "Inconsolata", monospace;
+  color: var(--neon-color1);
+  text-shadow: 0px 0px 5px var(--neon-color1);
+  text-decoration: none;
+  transition: 0.2s ease-in-out;
+}
+
+.title:hover > a {
+  color: var(--neon-color2);
+  text-shadow: 0px 0px 5px var(--neon-color2);
+}
+
+.links > button {
+  font-size: 1.5rem;
+  gap: 30px;
+  background: none;
+  border: none;
+  margin-right: 40px;
+  cursor: pointer;
+  height: 8vh;
+}
+
+.links > button > a {
+  text-decoration: none;
+  font-family: "Inconsolata", monospace;
+  color: var(--neon-color1);
+  text-shadow: 0px 0px 5px var(--neon-color1);
+  transition: 0.2s ease-in-out;
+}
+
+.links > button:hover > a {
+  color: var(--neon-color2);
+  text-shadow: 0px 0px 10px var(--neon-color2);
+}
+
+/* Today page */
+
+.today-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todayInput {
+  height: 40px;
+  margin-top: 50px;
+  margin-right: 10px;
+  border-radius: 10px;
+  padding: 10px;
+  background: none;
+  border: 2px solid var(--neon-color2);
+  color: var(--neon-color2);
+  text-shadow: 0px 0px 7px var(--neon-color2);
+  box-shadow: 0px 0px 7px var(--neon-color2);
+  font-size: 2rem;
+  font-family: "Inconsolata", monospace;
+}
+
+.todayInput:focus {
+  outline: none;
+}
+
+.newToday {
+  font-size: 3rem;
+  border-radius: 10px;
+  background: none;
+  border: 2px solid var(--neon-color2);
+  color: var(--neon-color2);
+  text-shadow: 0px 0px 5px var(--neon-color2);
+  box-shadow: 0px 0px 5px var(--neon-color2);
+  cursor: pointer;
+  margin-top: 50px;
+  height: 60px;
+  width: 60px;
+  transition: 0.2s ease-in-out;
+}
+
+.newToday > button {
+  display: flex;
+  align-content: center;
+}
+
+.newToday:hover {
+  text-shadow: 0px 0px 5px var(--neon-color2);
+  box-shadow: 0px 0px 10px var(--neon-color2);
+}
+
+.tasksText {
+  color: var(--neon-color2);
+  margin-left: 50px;
+  font-size: 2rem;
+  font-family: "Inconsolata", monospace;
+}
+
+.tasksDiv {
+  display: flex;
+  border: 2px solid var(--neon-color2);
+  border-radius: 10px;
+  width: 50vw;
+  height: 6vh;
+  margin-top: 40px;
+  align-items: center;
+  text-shadow: 0px 0px 5px var(--neon-color2);
+  box-shadow: 0px 0px 5px var(--neon-color2);
+}
+
+.taskContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.btnDiv {
+  display: flex;
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+.deleteBtn,
+.checkBtn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--neon-color2);
+  text-shadow: 0px 0px 5px var(--neon-color2);
+}
+
+.checkBtn {
+  margin-right: 30px;
 }
