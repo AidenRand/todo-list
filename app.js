@@ -23,7 +23,6 @@ function displayTasks() {
   taskContainer.innerHTML = "";
   for (let i = 0; i < tasks.length; i++) {
     let tasksT = tasks[i].todo;
-    let checkT = tasks[i].check;
 
     let tasksText = document.createElement("p");
     tasksText.innerHTML = tasksT;
@@ -71,6 +70,7 @@ function displayTasks() {
         deleteBtn.style.textShadow = "0px 0px 5px var(--neon-color2)";
         tasks[i].check = false;
       }
+      storeLocal();
     });
     if (tasks[i].check) {
       checkBtn.style.color = "var(--neon-color1)";
@@ -90,12 +90,38 @@ function displayTasks() {
       tasksText.style.textShadow = "0px 0px 5px var(--neon-color2)";
       deleteBtn.style.color = "var(--neon-color2)";
       deleteBtn.style.textShadow = "0px 0px 5px var(--neon-color2)";
+      
     }
+
+    deleteBtn.addEventListener("click", () => {
+      taskContainer.removeChild(tasksDiv);
+      tasks.splice(tasksDiv, 1);
+      storeLocal();
+    });
   }
+  storeLocal();
 }
 
 addTodayBtn.addEventListener("click", () => {
   makeTasks();
   displayTasks();
   todayInput.value = "";
+  storeLocal();
 });
+
+// fix when refresh the tasks dont change to ones deleted
+function storeLocal() {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+function getLocalStorage() {
+  if (!localStorage.getItem("tasks")) {
+    displayTasks();
+  } else {
+    let items = localStorage.getItem("tasks");
+    items = JSON.parse(items);
+    tasks = items;
+    displayTasks();
+  }
+}
+getLocalStorage();
